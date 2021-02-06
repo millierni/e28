@@ -1,0 +1,12 @@
+#wallet {
+    color: rgb(255, 166, 0);
+}
+
+#rules {
+    font-style: italic;
+}
+
+.center {
+    align-content: center;
+    text-align: center;
+}
