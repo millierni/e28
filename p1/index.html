@@ -5,18 +5,82 @@
     <title>Mine the Hash</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="static/styles/styles.css">
-    <script src='https://unpkg.com/vue@next' defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@next" defer></script>
     <script src="static/js/game.js" defer></script>
 </head>
 
 <body class="center">
-    <h1 id="title">Mine the Hash</h1>
-    <h2 id="subtitle">Try every number you can till you mine a block of gold!</h2>
-    <h3 id="rules">You need to change the hash by changing the nonce. You need to guess a whole number and then click on the try button. If you find a hash that begins with 0, that means that you found a block of gold! </h3>
-    <h2 id="wallet">Wallet: 0 oz of gold</h2>
-    <h1 id="hash"></h1>
-    <input type="number" name="nonce" id="nonce">
-    <button>Try</button>
+
+    <div id="MineTheHashApp" v-cloak>
+        {{ initialize }}
+
+        <h1 id="title">Mine the Hash</h1>
+        <h2 id="subtitle">Try every number you can till you mine a block of gold!</h2>
+        <h3 id="rules">You need to change the hash by changing the nonce. You need to guess a whole number and then click on the try button. If you find a hash that begins with 0, that means that you found a block of gold! </h3>
+        <h2 id="wallet">Wallet: {{ wallet }} oz of gold</h2>
+
+        <button v-on:click="reset()">Reset</button>
+
+        <h1 id="hash" v-bind:class="{correct: isCorrect}">{{ hash }}</h1>
+
+        <label>
+            Enter a whole number: <input type="number" v-model="guess" v-on:keyup.enter='trying(guess)'>
+        </label>
+
+        <button v-on:click="trying(guess)">Guess this Nonce</button>
+
+
+        <div id="message-style" v-bind:class="{ correct: isCorrect, incorrect: isIncorrect }">
+
+            <div v-if="isCorrect">
+                <feedback-section v-for="feedback in feedbacks" v-bind:message="feedback.correct" isFeedback="true"></feedback-section>
+            </div>
+
+            <div v-if="isIncorrect">
+                <feedback-section v-for="feedback in feedbacks" v-bind:message='feedback.incorrect' isFeedback="true"></feedback-section>
+            </div>
+
+            <div v-else>
+                <feedback-section isFeedback="false"></feedback-section>
+            </div>
+        </div>
+
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col" class="center">Hash</th>
+                    <th scope="col" class="center">Nonce</th>
+                    <th scope="col" class="center">Oz of Gold</th>
+                </tr>
+            </thead>
+            <tbody v-for="block in blocksMined">
+
+                    <tr>
+                        <th scope="row">{{ block.id }}</th>
+                        <td>{{ block.hash }}</td>
+                        <td>{{ block.nonce }}</td>
+                        <td>{{ block.gold }}</td>
+                    </tr>
+
+
+            </tbody>
+          </table>
+
+        
+    </div>
+
+
+    <script id="feedback-section" type="text/x-template">
+        <div v-if="message" v-bind:class="{correct: isCorrect, incorrect: isIncorrect}">
+            {{ message }}
+        </div>
+
+    </script>
+
 </body>
 
 </html>
