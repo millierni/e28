@@ -270,6 +270,8 @@ const FeedbackSection = {
     data() {
         return {
             isFeedback: false,
+            isCorrect: false,
+            isIncorrect: false,
         }
     },
     methods: {
