@@ -1,11 +1,7 @@
-*Any instructions/notes in italics should be removed from the template before submitting* 
-
-# Project 1
-+ By: *your first and last name*
-+ Production URL: <http://e28p1.yourdomain.com>
+# Project 1 - Mine The Hash
++ By: *Nikolas Millier*
++ Production URL: <https://e28p1.nikolasmillier.com>
 
 ## Outside resources
-*your list of outside resources go here*
-
-## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section*
++ [SHA256 hash function](https://www.quora.com/How-do-I-generate-sha256-key-in-javascript)
++ [Bootstrap](https://getbootstrap.com/)

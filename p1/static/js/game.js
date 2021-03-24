@@ -2,60 +2,54 @@
 const MineTheHash = {
     data() {
         return {
-
-            // Put in alphabetic order!!! ****
-            message: "001100100011100100111001001101110011100100110010001101000011010100111000",
-            salt: null,
-            nonce: null,
-            gold: 0,
-            wallet:0,
-            hash: null,
             blocksMined: [],
-            id: 0,
-            guess: null,
-            scn: false,
-
-            isCorrect: false,
-            isIncorrect: false,
-
-
             feedbacks: [
                 {correct: "You found gold!"},
                 {incorrect: "Try again..."},
             ],
-
+            gold: 0,
+            guess: null,
+            hash: null,
+            id: 0,
+            isCorrect: false,
+            isIncorrect: false,
+            message: "001100100011100100111001001101110011100100110010001101000011010100111000",
+            nonce: null,
+            salt: null,
+            icn: false,
+            wallet:0,
         }
     },
 
-
     computed:{
+        // Initialize the first hash
         initialize: function() {
             if (this.nonce === null) {
                 this.nonce = "genesis";
             }
             this.loadSHA256();
         } 
-
     },
-
 
     methods: {
 
+        // Create a salt
         loadSalt: function() {
             this.salt = Math.floor(Math.random() * 100000);
         },
 
+        // Update the id
         updateId: function() {
             this.id ++;
         },
 
-
+        // Add the current mined hash to the list blockMined and update the id
         appendBlockMined: function(hash) {
             this.blocksMined.push({ id: this.id, hash: hash, nonce: this.nonce, gold: this.gold });
             this.updateId();
         },
 
-
+        // Verify if the hash is mined
         verify: function(hash) {
             if (hash === null) {
                 return false;
@@ -68,12 +62,12 @@ const MineTheHash = {
             }
         },
 
-
+        // Update the value in the wallet
         updateWallet: function() {
             this.wallet = this.wallet + this.gold;
         },
 
-
+        // Create a random reward
         reward: function() {
             do {
                 this.gold = Math.floor(Math.random() * 10);
@@ -81,37 +75,39 @@ const MineTheHash = {
             while (this.gold < 1);
         },
 
-
-
+        // Reset the guess number field
         resetFields: function() {
             this.guess = null;
         },
 
-
+        // Create the next hash
         next: function(hash) {
 
+            // If the first char in the initial hash equals to 0
+            // Load a new salt
             if (this.verify(hash) && this.nonce === "genesis") {
                 this.loadSalt();
             }
+
+            // If the first char is 0
             else if (this.verify(hash)) {
                 this.isIncorrect = false;
                 this.isCorrect = true;
                 this.reward();
                 this.updateWallet();
                 this.appendBlockMined(hash);
-                this.scn = true;
+                this.icn = true;
             }
+
+            // Change to incorrect nonce
             else {
                 this.isIncorrect = true;
                 this.isCorrect = false;
             }
-
         },
 
-
-
-
         // Source: https://www.quora.com/How-do-I-generate-sha256-key-in-javascript
+        // Create a SHA256 hash from a string
         SHA256: function(s) { 
             var chrsz  = 8; 
             var hexcase = 0; 
@@ -211,41 +207,48 @@ const MineTheHash = {
             return binb2hex(core_sha256(str2binb(s), s.length * chrsz)); 
         },
 
-
-
-
+        // Call the SHA256 function with a string
         loadSHA256: function() {
+
+            // If this is the first hash generated
             if (this.nonce === "genesis") {
-                console.log(this.nonce);
                 this.loadSalt();
                 this.hash = this.SHA256(this.salt + this.message);
             }
         
+            // Try the nonce
             else {
                 this.hash = this.SHA256(this.salt + this.message + this.nonce);
             }
         },
 
-
+        // Grab the guessing nonce from the user
         trying: function(guess) {
+
+            // Verify that the guessing nonce is not equal to null
             if (guess !== null) {
+
+                // Call the resetField function
                 this.resetFields();
-                console.log(guess);
+
+                // Change the value of the nonce to the guessing one
                 this.nonce = guess;
 
-                if (this.scn) {
+                // If it's a correct nonce, load a new salt
+                if (this.icn) {
                     this.loadSalt();
-                    this.scn = false;
+                    this.icn = false;
                 }
+
+                // Test the nonce
                 this.loadSHA256();
 
+                // Call the next function
                 this.next(this.hash);
-                console.log(this.hash);
             }
-
         },
 
-
+        // Reset the game
         reset: function() {
             this.resetFields();
             this.nonce = "genesis";
@@ -254,14 +257,11 @@ const MineTheHash = {
             this.isIncorrect = false;
             this.blocksMined = [];
             this.wallet = 0;
-
         }
-
-
     }
 }
 
-
+// Create a feedback component
 const FeedbackSection = {
     name: "FeedbackSection",
     props: {
@@ -280,7 +280,6 @@ const FeedbackSection = {
     template: "#feedback-section"
 }
 
-
 // Create a new Vue instance
 const MineTheHashApp = Vue.createApp(MineTheHash);
 
@@ -289,7 +288,3 @@ MineTheHashApp.component("feedback-section", FeedbackSection);
 
 // Mount MineTheHashApp
 MineTheHashApp.mount("#MineTheHashApp");
-
-
-
-// https://jsfiddle.net/tpzdo1gq/

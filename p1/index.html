@@ -12,42 +12,44 @@
 
 <body class="center">
 
+    <!-- MineTheHash Application -->
     <div id="MineTheHashApp" v-cloak>
+
+        <!-- Initialize the game -->
         {{ initialize }}
 
+        <!-- Header of the game -->
         <h1 id="title">Mine the Hash</h1>
         <h2 id="subtitle">Try every number you can till you mine a block of gold!</h2>
         <h3 id="rules">You need to change the hash by changing the nonce. You need to guess a whole number and then click on the try button. If you find a hash that begins with 0, that means that you found a block of gold! </h3>
         <h2 id="wallet">Wallet: {{ wallet }} oz of gold</h2>
 
+        <!-- Reset the game -->
         <button v-on:click="reset()">Reset</button>
 
+        <!-- Display the hash -->
         <h1 id="hash" v-bind:class="{correct: isCorrect}">{{ hash }}</h1>
 
+        <!-- Display the guess nonce input for the user -->
         <label>
             Enter a whole number: <input type="number" v-model="guess" v-on:keyup.enter='trying(guess)'>
         </label>
-
         <button v-on:click="trying(guess)">Guess this Nonce</button>
 
-
+        <!-- Display a message to the user -->
         <div id="message-style" v-bind:class="{ correct: isCorrect, incorrect: isIncorrect }">
-
             <div v-if="isCorrect">
                 <feedback-section v-for="feedback in feedbacks" v-bind:message="feedback.correct" isFeedback="true"></feedback-section>
             </div>
-
             <div v-if="isIncorrect">
                 <feedback-section v-for="feedback in feedbacks" v-bind:message='feedback.incorrect' isFeedback="true"></feedback-section>
             </div>
-
             <div v-else>
                 <feedback-section isFeedback="false"></feedback-section>
             </div>
         </div>
 
-
-
+        <!-- Display the history of blocks mined -->
         <table class="table">
             <thead>
                 <tr>
@@ -58,29 +60,23 @@
                 </tr>
             </thead>
             <tbody v-for="block in blocksMined">
-
                     <tr>
                         <th scope="row">{{ block.id }}</th>
                         <td>{{ block.hash }}</td>
                         <td>{{ block.nonce }}</td>
                         <td>{{ block.gold }}</td>
                     </tr>
-
-
             </tbody>
           </table>
 
-        
     </div>
 
-
+    <!-- Script section for the feedback -->
     <script id="feedback-section" type="text/x-template">
         <div v-if="message" v-bind:class="{correct: isCorrect, incorrect: isIncorrect}">
             {{ message }}
         </div>
-
     </script>
 
 </body>
-
 </html>
