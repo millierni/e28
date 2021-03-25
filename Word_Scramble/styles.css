@@ -1,0 +1,15 @@
+[v-cloak] {
+    display: none;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+#message-style div {
+    background-color: silver;
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <title>Word Scramble App</title>
+    <meta charset='utf-8'>
+    <link href=data:, rel=icon>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src='js/app.js' defer></script>
+</head>
+
+<body>
+    <h1>Word Scramble</h1>
+
+    <div id='wordScrambleApp' v-cloak>
+
+        <div v-if="playerName">
+
+            <p>Game on, {{ playerName }}!</p>
+            <p>Your mystery word is: <span>{{ scrambleWord }}</span></p>
+            <p>Hint: {{ word[1] }}</p>
+
+            <label>
+                Your guess: <input type='text' v-model='guess' v-on:keyup.enter='guessing(guess)'>
+            </label>
+
+            <button v-on:click='guessing(guess)'>Submit guess</button>
+
+
+            <div id="message-style" v-bind:class="{ correct: isCorrect, incorrect: isIncorrect }">
+
+                <div v-if="isCorrect">
+                    <feedback v-for="feedback in feedbacks" v-bind:message="feedback.correct" isFeedback="true"></feedback>
+                    <button v-on:click='resetGame()'>Play again</button>
+
+                </div>
+
+                <div v-if="isIncorrect">
+                    <feedback v-for="feedback in feedbacks" v-bind:message='feedback.incorrect' isFeedback="true"></feedback>
+                </div>
+
+                <div v-else>
+                    <feedback isFeedback="false"></feedback>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <div v-else>
+            <label>
+                Enter your player name: <input type='text' v-model='player' v-on:keyup.enter='addPlayer(player)'>
+            </label>
+            <button v-on:click='addPlayer(player)'>Let's play!</button>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
