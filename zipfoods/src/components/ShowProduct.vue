@@ -1,5 +1,5 @@
 <template>
-    <div class="show-product">
+    <a class="show-product" v-bind:href="'/products/' + product.id">
         <div class="name">{{ product.name }}</div>
 
         <img
@@ -7,9 +7,7 @@
             v-bind:src="require('@/assets/images/products/' + product.id + '.jpg')"
         />
 
-        <div class="price">${{ product.price }}</div>
-        <p class="description">{{ product.description }}</p>
-    </div>
+    </a>
 </template>
 
 <script>
