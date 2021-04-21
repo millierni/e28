@@ -33,12 +33,15 @@
 </template>
 
 <script>
-import { products } from "@/common/products.js";
 
 export default {
     props: {
         id: {
             type: String, // Dynamic segments will be Strings, even if we're getting numerical values
+        },
+        products: {
+            type: Array,
+            default: null,
         },
 
     },
@@ -54,7 +57,7 @@ export default {
 
     data() {
         return {
-            products: products,
+            // product: null,
             is_exist: true,
             
             /* Store links in an array to maintain order */

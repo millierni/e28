@@ -1,0 +1,45 @@
+{
+    "permission_level": 0,
+    "fields": {
+        "brand": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:1",
+                "max:100"
+            ]
+        },
+        "model": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:1",
+                "max:100"
+            ]
+        },
+        "hashingAlgorithm": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:1",
+                "max:100"
+            ]
+        },
+        "hashrate": {
+            "type": "integer",
+            "validators": [
+                "required",
+                "numeric",
+                "min:0"
+            ]
+        },
+        "power": {
+            "type": "integer",
+            "validators": [
+                "required",
+                "numeric",
+                "min:0"
+            ]
+        }
+    }
+}

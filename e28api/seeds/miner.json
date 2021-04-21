@@ -1,0 +1,39 @@
+{
+    "seeds": [
+        {
+            "brand": "Antminer",
+            "model": "S9 [11.5TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 11.5,
+            "power": 1127
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9 [12.5TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 12.5,
+            "power": 1225
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9 [13TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 13,
+            "power": 1300
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9 [13.5TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 13.5,
+            "power": 1323
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9 [14TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 14,
+            "power": 1372
+        }
+    ]
+}

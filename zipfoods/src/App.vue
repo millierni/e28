@@ -15,19 +15,19 @@
         </ul>
     </nav>
 
-    <router-view></router-view>
+    <router-view v-bind:products="products"></router-view>
   </div>
 </template>
 
 <script>
-import { products } from "@/common/products.js";
+import { axios } from '@/common/app.js';
 
 
 export default {
   name: 'App',
   data() {
     return {
-      products: products,
+      products: [],
 
       /* Store links in an array to maintain order */
       links: ['home', 'products', 'categories'],
@@ -39,7 +39,12 @@ export default {
           categories: '/categories',
       },
     };
-  }
+  },
+  mounted() {
+    axios.get('/product').then((response) => {
+      this.products = response.data.product;
+    });
+  },
 };
 </script>
 

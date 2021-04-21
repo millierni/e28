@@ -5,7 +5,10 @@
 + Production URL: <https://e28p2.nikolasmillier.com>
 
 ## Pages summary
-*List the "pages" of your application*
++ Home (*This is the home page*)
++ Miners (*This is a page with a list of all the miners available*)
++ FAQ (*This is a page with some questions and answers*)
+
 
 ## SFC summary
 *List the SFCs of your application*
@@ -14,7 +17,4 @@
 *List the features in your application that are persisting and retrieving data from the server*
 
 ## Outside resources
-*Your list of outside resources go here*
-
-## Notes for instructor
-*Any notes for me to refer to while grading; if none, omit this section*
++ Logo Source: http://getdrawings.com/miner-icon#miner-icon-8.png (*By Avocadorable*)

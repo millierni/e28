@@ -1,6 +1,8 @@
 <template>
-    <a class="show-product" v-bind:href="'/products/' + product.id">
-        <div class="name">{{ product.name }}</div>
+    <!-- <a class="show-product" v-bind:href="'/products/' + product.id"> -->
+    <a class="show-product">
+        <router-link v-bind:to='"/products/" + product.id'>{{ product.name }}</router-link>
+        <!-- <div class="name">{{ product.name }}</div> -->
 
         <img
             class="thumb"
