@@ -2,6 +2,48 @@
     "seeds": [
         {
             "brand": "Antminer",
+            "model": "S19 [95TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 95,
+            "power": 3250
+        },
+        {
+            "brand": "Antminer",
+            "model": "S19 Pro [110TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 110,
+            "power": 3250
+        },
+        {
+            "brand": "Antminer",
+            "model": "S19j [90TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 90,
+            "power": 3250
+        },
+        {
+            "brand": "Antminer",
+            "model": "S19j Pro [100TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 100,
+            "power": 3050
+        },
+        {
+            "brand": "Antminer",
+            "model": "S7",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 4.73,
+            "power": 1293
+        },
+        {
+            "brand": "Antminer",
+            "model": "S7-LN",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 2.7,
+            "power": 697
+        },
+        {
+            "brand": "Antminer",
             "model": "S9 [11.5TH]",
             "hashingAlgorithm": "SHA-256",
             "hashrate": 11.5,
@@ -34,6 +76,111 @@
             "hashingAlgorithm": "SHA-256",
             "hashrate": 14,
             "power": 1372
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9 Hydro [18TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 18,
+            "power": 1728
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9 SE [16TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 16,
+            "power": 1280
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9i [13TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 13,
+            "power": 1280
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9i [14TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 14,
+            "power": 1320
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9j [14.5TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 14.5,
+            "power": 1350
+        },
+        {
+            "brand": "Antminer",
+            "model": "S9k [13.5TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 13.5,
+            "power": 1310
+        },
+        {
+            "brand": "Antminer",
+            "model": "T9 [11.5TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 11.5,
+            "power": 1450
+        },
+        {
+            "brand": "Antminer",
+            "model": "T9 [12.5TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 12.5,
+            "power": 1576
+        },
+        {
+            "brand": "Antminer",
+            "model": "T9+ [10.5TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 10.5,
+            "power": 1432
+        },
+        {
+            "brand": "Antminer",
+            "model": "V9 [4TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 4,
+            "power": 1027
+        },
+        {
+            "brand": "Antminer",
+            "model": "T15 [23TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 23,
+            "power": 1541
+        },
+        {
+            "brand": "Antminer",
+            "model": "T17 [40TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 40,
+            "power": 2200
+        },
+        {
+            "brand": "Antminer",
+            "model": "T17+ [64TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 64,
+            "power": 3200
+        },
+        {
+            "brand": "Antminer",
+            "model": "T17e [53TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 53,
+            "power": 2915
+        },
+        {
+            "brand": "Antminer",
+            "model": "T19 [84TH]",
+            "hashingAlgorithm": "SHA-256",
+            "hashrate": 84,
+            "power": 3150
         }
     ]
 }

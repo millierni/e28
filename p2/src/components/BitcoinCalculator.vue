@@ -126,7 +126,6 @@ export default {
       supplyEmissionPerBlock: 6.25,
       period: 30,
       forecasts: [],
-
     }
   },
 
