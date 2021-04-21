@@ -18,39 +18,37 @@
   </div>
 </template>
 
-
-
 <script>
 import { axios } from "@/common/app.js";
 
 export default {
-  name: 'App',
+  name: "App",
 
   data() {
     return {
       miners: [],
 
       /* Store links in an array to maintain order */
-      links: ['Home', 'Miners', 'FAQ'],
+      links: ["Home", "Miners", "FAQ"],
 
       /* Map links to the appropriate component */
       paths: {
-          Home: '/',
-          Miners: '/miners',
-          FAQ: 'FAQ',
+          Home: "/",
+          Miners: "/miners",
+          FAQ: "FAQ",
       },
     }
   },
 
   mounted() {
-    axios.get('miner').then(response => {
+    axios.get("miner").then(response => {
       this.miners = response.data.miner;
     });
   },
 }
 </script>
 
-<style src='@/assets/css/styles.css'></style>
+<style src="@/assets/css/styles.css"></style>
 
 <style>
 #app {

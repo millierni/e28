@@ -5,8 +5,6 @@
       <img id="logo" alt="Miner logo" src="@/assets/images/miner.png" width="140">
       <h1 id="title">FAQ</h1>
 
-
-
       <div>
 
         <div class="question">
@@ -30,8 +28,6 @@
           </p>
         </div>
 
-
-
       </div>
         
     </div>
@@ -42,10 +38,8 @@
 </script>
 
 <style>
-
 .question {
   margin-left: 100px;
   margin-right: 100px;
 }
-
 </style>

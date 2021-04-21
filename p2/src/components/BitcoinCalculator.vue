@@ -9,56 +9,56 @@
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Hashrate (TH/s)</h4> 
-            <input type='number' v-model.number='terahashRate'>
+            <input type="number" v-model.number="terahashRate">
           </label>
         </div>
 
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Power Use</h4> 
-            <input type='number' v-model.number='powerUse'>
+            <input type="number" v-model.number="powerUse">
           </label>
         </div>
 
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Electricity Costs (kWh)</h4> 
-            <input type='number' v-model.number='electricityCosts'>
+            <input type="number" v-model.number="electricityCosts">
           </label>
         </div>
 
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Bitcoin Price</h4>
-            <input type='number' v-model.number='price'>
+            <input type="number" v-model.number="price">
           </label>
         </div>
 
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Difficulty</h4> 
-            <input type='number' v-model.number='difficulty'>
+            <input type="number" v-model.number="difficulty">
           </label>
         </div>
 
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Network Hashrate</h4> 
-            <input type='number' v-model.number='networkHashrate'>
+            <input type="number" v-model.number="networkHashrate">
           </label>
         </div>
 
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Emission Per Block</h4> 
-            <input type='number' v-model.number='supplyEmissionPerBlock'>
+            <input type="number" v-model.number="supplyEmissionPerBlock">
           </label>
         </div>
 
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Periods</h4> 
-            <input type='number' v-model.number='period'>
+            <input type="number" v-model.number="period">
           </label>
         </div>
 
@@ -117,10 +117,10 @@ export default {
 
   data() {
     return {
-      terahashRate: 94.87,
-      powerUse: 3000,
+      terahashRate: 100,
+      powerUse: 3200,
       electricityCosts: 0.07,
-      price: 64000,
+      price: 60000,
       difficulty: 23581981443663,
       networkHashrate: 1.82821e+20,
       supplyEmissionPerBlock: 6.25,
@@ -173,14 +173,14 @@ export default {
           "day": i,
           "hashrate": hashrate,
           "networkHashrate": networkHashrate,
-          "sharerate": Number(Math.round(sharerate + 'e2') + 'e-2').toFixed(2),
-          "difficulty": Number(Math.round(difficulty + 'e0') + 'e-0').toFixed(0),
-          "blocksperday": Number(Math.round(blocksperday + 'e8') + 'e-8').toFixed(8),
-          "coinsperday": Number(Math.round(coinsperday + 'e8') + 'e-8').toFixed(8),
-          "revenueperday": Number(Math.round(revenueperday + 'e2') + 'e-2').toFixed(2),
-          "electricityCosts": Number(Math.round(cost + 'e2') + 'e-2').toFixed(2),
-          "profit": Number(Math.round(profit + 'e2') + 'e-2').toFixed(2),
-          "totalProfit": Number(Math.round(totalProfit + 'e2') + 'e-2').toFixed(2),
+          "sharerate": Number(Math.round(sharerate + "e2") + "e-2").toFixed(2),
+          "difficulty": Number(Math.round(difficulty + "e0") + "e-0").toFixed(0),
+          "blocksperday": Number(Math.round(blocksperday + "e8") + "e-8").toFixed(8),
+          "coinsperday": Number(Math.round(coinsperday + "e8") + "e-8").toFixed(8),
+          "revenueperday": Number(Math.round(revenueperday + "e2") + "e-2").toFixed(2),
+          "electricityCosts": Number(Math.round(cost + "e2") + "e-2").toFixed(2),
+          "profit": Number(Math.round(profit + "e2") + "e-2").toFixed(2),
+          "totalProfit": Number(Math.round(totalProfit + "e2") + "e-2").toFixed(2),
         };
 
         this.addForecast(forecast);

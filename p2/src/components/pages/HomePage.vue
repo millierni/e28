@@ -6,31 +6,24 @@
       <img id="logo" alt="Miner logo" src="@/assets/images/miner.png" width="140">
       <h1 id="title">Bitcoin Mining Calculator</h1>
 
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
 
+              <div class="form-group">
+                <label for="sel1">Select ASIC Miner:</label>
+                <select class="form-control" id="sel1" v-model="miner" miner="miner" v-bind="selectedMiner">
 
-  <div class="container">
-      <div class="row">
-        
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
+                  <option v-for="miner in selectMiners" v-bind:key="miner">
+                    {{ miner.model }}
+                  </option>
 
-          <div class="form-group">
-            <label for="sel1">Select ASIC Miner:</label>
-            <select class="form-control" id="sel1" v-model="miner" miner="miner" v-bind="selectedMiner">
-
-              <option v-for="miner in selectMiners" v-bind:key="miner">
-                {{ miner.model }}
-              </option>
-
-            </select>
+                </select>
+              </div>
+            </div>
           </div>
-
         </div>
-
-
-
-      </div>
-    </div>
 
       <bitcoin-calculator v-bind:minerSelected="minerSelected"></bitcoin-calculator>
 
@@ -38,7 +31,7 @@
 </template>
 
 <script>
-import BitcoinCalculator from '@/components/BitcoinCalculator.vue';
+import BitcoinCalculator from "@/components/BitcoinCalculator.vue";
 
 export default {
   components: { 
@@ -58,12 +51,9 @@ export default {
     },
 
     selectedMiner: function() {
-
       for (const miner in this.miners) {
-
         if (this.miners[miner].model == this.miner) {
           this.selectMiner(this.miners[miner].hashrate, this.miners[miner].power);
-
         }
       }
 
@@ -78,7 +68,6 @@ export default {
 
     };
   },
-
 
   methods: {
 
@@ -96,8 +85,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 #title {
   margin-bottom: 60px;
 }

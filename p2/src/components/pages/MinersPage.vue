@@ -5,8 +5,6 @@
       <img id="logo" alt="Miner logo" src="@/assets/images/miner.png" width="140">
       <h1 id="title">ASIC Miners</h1>
 
-
-
       <div>
         <table class="table">
 
@@ -30,24 +28,21 @@
             </tr>
 
           </tbody>
+
         </table>
       </div>
-        
+
     </div>
 </template>
 
 <script>
-
 export default {
-
   props: {
     miners: {
       type: Array,
       default: null,
     }
   },
-
-
 }
 </script>
 
