@@ -51,9 +51,7 @@ export default {
   methods: {
     loadMiners() {
       axios.get("miner").then(response => {
-        if (response.data != null) {
-          this.miners = response.data.miner;
-        }
+        this.miners = response.data.miner;
       });
     },
   },
