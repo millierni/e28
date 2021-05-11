@@ -1,89 +1,81 @@
 <template>
     <div id="product-page">
-        <!-- <h1>Product {{ id }}</h1> -->
-        <!-- <h2>{{ products }}</h2> -->
-
-
-        <div v-if="is_exist === true">
-            <div v-for="item in selectProduct" v-bind:key="item">
-                <h1>{{ item.name }}</h1>
-                <img
-                    class="thumb"
-                    v-bind:src="require('@/assets/images/products/' + item.id + '.jpg')"
-                />
-                <p>{{ item.description }}</p>
-                <h3>${{ item.price }}</h3>
-            </div>
-        </div>
-        <div v-else>
-            <p>
-                Product {{ id }} not found, return to
-                <router-link
-                    v-for="link in links"
-                    v-bind:key="link"
-                    v-bind:to="paths[link]">
-                    
-                    {{ link }}
-                </router-link>
-            </p>
+        <div v-if="productNotFound">
+            <p>Product {{ id }} not found.</p>
+            <router-link v-bind:to="'/products'"
+                >Go to all products</router-link
+            >
         </div>
 
+        <div v-else-if="product">
+            <show-product
+                v-bind:product="product"
+                v-bind:detailed="true"
+            ></show-product>
 
+            <button v-on:click="addToCart" data-test="add-to-cart-button">
+                Add to cart
+            </button>
+
+            <transition name="fade">
+                <div
+                    class="alert"
+                    v-if="addConfirmation"
+                    data-test="add-to-cart-confirmation"
+                >
+                    This product was added to your cart!
+                </div>
+            </transition>
+        </div>
     </div>
 </template>
 
 <script>
+import ShowProduct from "@/components/ShowProduct.vue";
+import { cart } from "@/common/app.js";
 
 export default {
+    components: {
+        "show-product": ShowProduct,
+    },
     props: {
         id: {
-            type: String, // Dynamic segments will be Strings, even if we're getting numerical values
-        },
-        products: {
-            type: Array,
-            default: null,
-        },
-
-    },
-
-    computed: {
-        selectProduct: function() {
-            let filteredProduct = this.products.filter(item => item.id == this.id);
-            this.verify(filteredProduct);
-
-            return filteredProduct
+            type: String,
         },
     },
-
     data() {
         return {
-            // product: null,
-            is_exist: true,
-            
-            /* Store links in an array to maintain order */
-            links: ['products'],
-
-            /* Map links to the appropriate component */
-            paths: {
-                products: '/products',
-            },
+            addConfirmation: false,
         };
     },
-
-    methods: {
-        verify: function(item) {
-            if (item.length === 0) {
-                this.is_exist = false;
-            }
-            else {
-                this.is_exist = true;
-            }
+    computed: {
+        product() {
+            return this.$store.getters.getProductById(this.id);
+        },
+        productNotFound() {
+            return this.product == null;
+        },
+        products() {
+            return this.$store.state.products;
         },
     },
+    methods: {
+        addToCart() {
+            console.log(this.product.id);
 
+            cart.add(this.product.id);
+
+            this.$store.commit("setCartCount", cart.count());
+
+            this.addConfirmation = true;
+
+            setTimeout(() => {
+                this.addConfirmation = false;
+            }, 3000);
+        },
+    },
 };
 </script>
 
-<style>
-
+<style scoped>
 </style>

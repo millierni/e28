@@ -4,10 +4,6 @@
     <div class="container">
       {{ miningCalculator() }} 
 
-
-
-
-      <!-- !!! Create a for loop with a list that contains the block-title, to iterate over the block ****** -->
       <div class="row">
         
         <div class="col-lg-3">

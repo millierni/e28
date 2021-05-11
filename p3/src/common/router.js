@@ -49,7 +49,7 @@ const routes = [
 
 // Initialize our router
 const router = createRouter({
-    mode: "history",
+    mode: "hash",
     history: createWebHistory(),
     routes,
 });
