@@ -1,5 +1,5 @@
 {
-  "name": "p2",
+  "name": "p3",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -32,7 +32,6 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "es2020": true,
       "node": true
     },
     "extends": [

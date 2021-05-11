@@ -49,6 +49,7 @@ const routes = [
 
 // Initialize our router
 const router = createRouter({
+    mode: "history",
     history: createWebHistory(),
     routes,
 });
