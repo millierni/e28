@@ -28,14 +28,18 @@ export const store = createStore({
         authUser(context) {
             return new Promise((resolve) => {
                 axios.post('auth').then((response) => {
-                    if (response.data.authenticated) {
-                        context.commit('setUser', response.data.user);
-                    } 
-                    else {
-                        context.commit('setUser', false);
+
+                    if (response.data != null) {
+
+                        if (response.data.authenticated) {
+                            context.commit('setUser', response.data.user);
+                        } 
+                        else {
+                            context.commit('setUser', false);
+                        }
+        
+                        resolve();
                     }
-    
-                    resolve();
                 });
             });
         },
