@@ -5,8 +5,6 @@ import { store } from '@/common/store';
 const routes = [
     {
         path: '/',
-        // Rather than having to have separate import statements at the top of this page for each component
-        // Here’s a simple way we can directly make our components available
         component: () => import('@/components/pages/HomePage.vue'),
         props: true,
     },
@@ -39,8 +37,6 @@ const routes = [
         props: true,
     },    
     {
-        // This is a route we can direct the user to if they try to access 
-        // a part of the site they don’t have privileges for
         path: '/denied',
         component: () => import('@/components/pages/AccessDeniedPage.vue'),
     },

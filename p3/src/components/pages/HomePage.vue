@@ -56,7 +56,6 @@ export default {
           this.selectMiner(this.miners[miner].hashrate, this.miners[miner].power);
         }
       }
-
       return true;
     },
   },
@@ -70,7 +69,6 @@ export default {
   },
 
   methods: {
-
     resetSelected: function() {
       this.minerSelected = [];
     },
@@ -79,7 +77,6 @@ export default {
       this.resetSelected();
       this.minerSelected.push(hashrate, power);
     },
-
   },
 }
 </script>

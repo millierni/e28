@@ -2,7 +2,6 @@
     <div id="account-page">
         <div>
             <h2>Register</h2>
-
             <div>
                 <label>
                     Name:
@@ -48,7 +47,6 @@
             <div class="alert-success" v-if="isRegistered">
                 You are registered.
             </div>
-
             <div class="alert-danger" v-if="otherErrors">
                 {{ otherErrors[0] }}
             </div>

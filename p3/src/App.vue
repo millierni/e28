@@ -6,9 +6,7 @@
           v-for="link in links"
           v-bind:key="link"
           v-bind:to="paths[link]">
-
             <span class="page">{{ link }}</span>
-
         </router-link>
       </ul>
     </nav>

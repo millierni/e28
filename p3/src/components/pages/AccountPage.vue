@@ -1,19 +1,20 @@
 <template>
     <div id="account-page">
-
         <div v-if="user">
-            <h2>Hi, {{ user.name }}!</h2>
-            <button v-on:click="logout">Logout</button>
+            <h2>
+                Hi, <span data-test="name">{{ user.name }}</span>!
+            </h2>
+            <button data-test=logout-button v-on:click="logout">Logout</button>
         </div>
 
         <div v-else>
             <div>
                 <h2>Login</h2>
-
                 <div>
                     <label>
                         Email:
                         <input 
+                            data-test="login-email"
                             type="text" 
                             v-model="data.email" 
                             v-on:blur="validate"
@@ -27,7 +28,8 @@
                 <div>
                     <label>
                         Password:
-                        <input 
+                        <input
+                        data-test="login-password"
                             type="password" 
                             v-model="data.password"
                             v-on:blur="validate"
@@ -42,8 +44,7 @@
                     {{ otherErrors[0] }}
                 </div>
 
-
-                <button v-on:click="login">Login</button>
+                <button data-test=login-button v-on:click="login">Login</button>
             </div>
 
             <ul>
@@ -66,8 +67,8 @@ export default {
     data() {
         return {
             data: {
-                email: "jill@harvard.edu",
-                password: "asdfasdf",
+                email: "",
+                password: "",
             },
             errors: null,
             otherErrors: null,
@@ -91,7 +92,6 @@ export default {
     },
 
     methods: {
-
         validate() {
             let validator = new Validator(this.data, {
                 email: "required|email",
@@ -104,7 +104,6 @@ export default {
             } else {
                 this.errors = null;
             }
-
             return validator.passes();
         },
 

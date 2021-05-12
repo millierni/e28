@@ -37,7 +37,6 @@ export const store = createStore({
                     }
         
                     resolve();
-
                 });
             });
         },

@@ -1,13 +1,10 @@
 <template>
     <div>
-
       <!-- Source: http://getdrawings.com/miner-icon#miner-icon-8.png [By Avocadorable] -->
       <img id="logo" alt="Miner logo" src="@/assets/images/miner.png" width="140">
       <h1 id="title">Add Miner</h1>
-
       <div id="inputs">
         <div class="row center">
-
             <div class="col-lg-9">
                 <label class="block" for="brand">
                   <h4 class="block-title">Brand:</h4> 
@@ -19,7 +16,7 @@
                   />
                 </label>
                 <div v-if="errors">
-                  <p v-if="errors.brand">{{ errors.brand[0] }}</p>
+                  <p data-test="brand-error" v-if="errors.brand">{{ errors.brand[0] }}</p>
                 </div>
             </div>
 
@@ -34,7 +31,7 @@
                   />
                 </label>
                 <div v-if="errors">
-                  <p v-if="errors.model">{{ errors.model[0] }}</p>
+                  <p data-test="model-error" v-if="errors.model">{{ errors.model[0] }}</p>
                 </div>
             </div>
 
@@ -49,13 +46,13 @@
                   />
                 </label>
                 <div v-if="errors">
-                  <p v-if="errors.hashingAlgorithm">{{ errors.hashingAlgorithm[0] }}</p>
+                  <p data-test="hashingAlgorithm-error" v-if="errors.hashingAlgorithm">{{ errors.hashingAlgorithm[0] }}</p>
                 </div>
             </div>
 
             <div class="col-lg-9">
                 <label class="block" for="hashrate">
-                  <h4 class="block-title">Hashrate:</h4>
+                  <h4 class="block-title">Hashrate (TH/s):</h4>
                   <input 
                     type="number"
                     v-model="miner.hashrate" 
@@ -64,13 +61,13 @@
                   />
                 </label>
                 <div v-if="errors">
-                  <p v-if="errors.hashrate">{{ errors.hashrate[0] }}</p>
+                  <p data-test="hashrate-error" v-if="errors.hashrate">{{ errors.hashrate[0] }}</p>
                 </div>
             </div>
 
             <div class="col-lg-9">
                 <label class="block" for="power">
-                  <h4 class="block-title">Power:</h4> 
+                  <h4 class="block-title">Power (W):</h4> 
                   <input 
                     type="number" 
                     v-model="miner.power" 
@@ -79,7 +76,7 @@
                   />
                 </label>
                 <div v-if="errors">
-                  <p v-if="errors.power">{{ errors.power[0] }}</p>
+                  <p data-test="power-error" v-if="errors.power">{{ errors.power[0] }}</p>
                 </div>
             </div>
 
@@ -89,12 +86,11 @@
       <div class="alert-success" v-if="isAdded">
         The miner was added successfully.
       </div>
-
       <div class="alert-warning" v-if="isWarning">
         Please fill all the required fields.
       </div>
 
-      <button v-on:click="addMiner">Add Miner</button>
+      <button data-test="addminer" v-on:click="addMiner">Add Miner</button>
     </div>
 </template>
 
@@ -134,7 +130,6 @@ export default {
             } else {
                 this.errors = null;
             }
-
             return validator.passes();
         },
 
@@ -147,7 +142,6 @@ export default {
                 this.isAdded = false;
                 this.isWarning = true;
               }
-
               else {
                 this.$emit("update-miners");
                 this.isAdded = true;

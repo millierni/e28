@@ -1,14 +1,11 @@
 <template>
     <div>
-
       <!-- Source: http://getdrawings.com/miner-icon#miner-icon-8.png [By Avocadorable] -->
       <img id="logo" alt="Miner logo" src="@/assets/images/miner.png" width="140">
       <h1 id="title">FAQ</h1>
-
       <div>
-
         <div class="question">
-          <strong>What is Bitcoin ?</strong>
+          <strong data-test="q1">What is Bitcoin ?</strong>
           <p>
             Bitcoin is a peer-to-peer electronic cash system.
           </p>
@@ -27,9 +24,7 @@
             Proof of work is a consensus mechanism that rewards you in function of your work.
           </p>
         </div>
-
       </div>
-        
     </div>
 </template>
 

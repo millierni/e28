@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div class="container">
       {{ miningCalculator() }} 
 
@@ -9,14 +8,14 @@
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Hashrate (TH/s)</h4> 
-            <input type="number" v-model.number="terahashRate">
+            <input data-test="hashrate" type="number" v-model.number="terahashRate">
           </label>
         </div>
 
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Power Use</h4> 
-            <input type="number" v-model.number="powerUse">
+            <input data-test="power" type="number" v-model.number="powerUse">
           </label>
         </div>
 
@@ -58,7 +57,7 @@
         <div class="col-lg-3">
           <label class="block">
             <h4 class="block-title">Periods</h4> 
-            <input type="number" v-model.number="period">
+            <input data-test="periods" type="number" v-model.number="period">
           </label>
         </div>
 
@@ -87,14 +86,14 @@
         <tbody>
           <tr v-bind:key="item" v-for="item in forecasts">
             <th scope="row">{{ item.day }}</th>
-            <td>{{ item.hashrate }}</td>
+            <td data-test="forecast-hashrate">{{ item.hashrate }}</td>
             <td>{{ item.networkHashrate }}</td>
             <td>{{ item.sharerate }}</td>
             <td>{{ item.difficulty }}</td>
             <td>{{ item.blocksperday }}</td>
             <td>{{ item.coinsperday }}</td>
             <td>{{ item.revenueperday }}</td>
-            <td>{{ item.electricityCosts }}</td>
+            <td data-test="forecast-electricity">{{ item.electricityCosts }}</td>
             <td>{{ item.profit }}</td>
             <td>{{ item.totalProfit }}</td>
           </tr>
